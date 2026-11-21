@@ -1,0 +1,6 @@
+{
+  "name": "ClipVerse",
+  "description": "AI-powered short-form video workflow for creators, founders, and brands. Turn long-form videos into engaging short clips.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-canvas: #080B14;
+  --color-lime-neon: #D5FF4F;
+  --color-muted: #AEB5C4;
+  --color-accent-purple: #A978FF;
+  --color-accent-orange: #FFAA45;
+  --color-accent-pink: #F58FBD;
+  --color-accent-sky: #83D7FF;
+}
+
+@layer base {
+  html,
+  body {
+    background-color: #080B14;
+    color: #ffffff;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+  }
+}
+
+.hero-dot-grid {
+  background-image: radial-gradient(rgba(174, 181, 196, 0.16) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translate3d(0, 0px, 0) rotate(var(--tile-rotate, 0deg));
+  }
+  50% {
+    transform: translate3d(0, -10px, 0) rotate(calc(var(--tile-rotate, 0deg) + 1.5deg));
+  }
+}
+
+@keyframes floatSlowReverse {
+  0%,
+  100% {
+    transform: translate3d(0, 0px, 0) rotate(var(--tile-rotate, 0deg));
+  }
+  50% {
+    transform: translate3d(0, 9px, 0) rotate(calc(var(--tile-rotate, 0deg) - 1.5deg));
+  }
+}
+
+@keyframes twinkleSoft {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.14) rotate(8deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow var(--float-duration, 6.5s) ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+}
+
+.animate-float-reverse {
+  animation: floatSlowReverse var(--float-duration, 7s) ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+}
+
+.animate-twinkle {
+  animation: twinkleSoft var(--twinkle-duration, 4.5s) ease-in-out infinite;
+  animation-delay: var(--twinkle-delay, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-float-reverse,
+  .animate-twinkle {
+    animation: none;
+  }
+}
